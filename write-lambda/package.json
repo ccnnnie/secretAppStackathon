@@ -1,0 +1,15 @@
+{
+  "name": "write-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.705.0",
+    "uuid": "^8.2.0"
+  }
+}
