@@ -1,4 +1,4 @@
-*/node_modules
+/lambdas/*/node_modules
 *.zip
 create-react-app.md
 
