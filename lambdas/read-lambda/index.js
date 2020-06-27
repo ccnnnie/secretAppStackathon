@@ -22,14 +22,14 @@ exports.handler = (event, context, callback) => {
     if (err) {
       callback(err, null);
     } else {
-      console.log('this is the data from the query: ', data);
-      console.log(
-        'this is the message from the query: ',
-        data['Items'][0]['message']
-      );
-      const message = data['Items'][0]['message'];
-      const secret = decrypt(message);
-      callback(null, secret);
+      console.log(data);
+      if (data.Count) {
+        const message = data['Items'][0]['message'];
+        const secret = decrypt(message);
+        callback(null, secret);
+      } else {
+        callback(null, { errorMessage: 'Secret Not Found.' });
+      }
     }
   });
 };
