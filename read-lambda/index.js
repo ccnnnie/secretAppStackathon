@@ -1,11 +1,12 @@
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient({ region: 'us-east-1' });
+const decrypt = require('./decrypt');
 
 exports.handler = (event, context, callback) => {
   console.log('processing event: ', event);
 
   let params = {
-    TableName: 'Secret',
+    TableName: 'SecretEncrypt',
     ExpressionAttributeNames: {
       '#id': 'uuid',
     },
@@ -21,7 +22,13 @@ exports.handler = (event, context, callback) => {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, data);
+      console.log('this is the data from the query: ', data);
+      console.log(
+        'this is the message from the query: ',
+        data['Items'][0]['message']
+      );
+      const message = data['Items'][0]['message'];
+      callback(null, decrypt(message));
     }
   });
 };

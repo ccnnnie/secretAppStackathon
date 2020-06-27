@@ -1,17 +1,18 @@
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient({ region: 'us-east-1' });
 const { v4: uuidv4 } = require('uuid');
+const encrypt = require('./encrypt');
 
-exports.handler = function(event, context, callback) {
+exports.handler = (event, context, callback) => {
   console.log('processing event: ', event);
 
   let params = {
     Item: {
       uuid: uuidv4(),
-      message: event.message,
+      message: encrypt(event.message),
     },
 
-    TableName: 'Secret',
+    TableName: 'SecretEncrypt',
   };
   console.log('params: ', params);
 
