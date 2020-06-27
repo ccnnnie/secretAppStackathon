@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Input, Button } from 'reactstrap';
+import { Button, TextField, Container, Typography } from '@material-ui/core';
 import axios from 'axios';
-import Confirm from './Confirm';
+import { useHistory } from 'react-router-dom';
+import SendIcon from '@material-ui/icons/Send';
 
-const Send = (props) => {
+const Send = () => {
   const [message, setMessage] = useState('');
-  const [verifCode, setVerifCode] = useState('');
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,25 +16,33 @@ const Send = (props) => {
       'https://30zom53or6.execute-api.us-east-1.amazonaws.com/prod/message/',
       { message }
     );
-    setVerifCode(data);
-    setMessage('');
+    history.push({
+      pathname: '/send/verification',
+      state: { verifCode: data },
+    });
   };
 
-  return verifCode ? (
-    <div>
-      <Confirm verifCode={verifCode} />
-    </div>
-  ) : (
-    <Form onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Tell us your secret message"
-        bsSize="lg"
-      />
-      <Button type="submit">Submit</Button>
-    </Form>
+  return (
+    <Container maxWidth="md">
+      <Typography variant="h1">What is Your Message?</Typography>
+      <form method="PUT" action="/" onSubmit={handleSubmit}>
+        <TextField
+          variant="outlined"
+          required
+          id="messageInput"
+          name="messageInput"
+          fullWidth
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Tell us your secret message"
+          style={{ paddingBottom: '2rem' }}
+        />
+        <Button type="submit" variant="outlined" endIcon={<SendIcon />}>
+          Send
+        </Button>
+      </form>
+    </Container>
   );
 };
 

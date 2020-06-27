@@ -1,23 +1,16 @@
 import React from 'react';
-import { Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import Buttons from './Buttons';
+import { Container, Typography } from '@material-ui/core';
 
 const Home = () => {
   return (
     <div>
-      <h1>Are You Sending or Receiving a Secret?</h1>
-      <div>
-        <Link to="/send">
-          <Button outline color="secondary">
-            Sending
-          </Button>
-        </Link>
-        <Link to="/receive">
-          <Button outline color="secondary">
-            Receiving
-          </Button>
-        </Link>
-      </div>
+      <Container maxWidth="md">
+        <Typography variant="h1">
+          Are You Sending or Receiving a Secret?
+        </Typography>
+        <Buttons />
+      </Container>
     </div>
   );
 };

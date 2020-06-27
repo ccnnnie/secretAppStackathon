@@ -1,33 +1,49 @@
 import React, { useState } from 'react';
-import { Form, Input, Button } from 'reactstrap';
+import { Typography, TextField, Button, Container } from '@material-ui/core';
 import axios from 'axios';
-import Secret from './Secret';
+import { useHistory } from 'react-router-dom';
+import PublishIcon from '@material-ui/icons/Publish';
 
 const Receive = () => {
+  const history = useHistory();
+
   const [verifCode, setVerifCode] = useState('');
-  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await axios.get(
       `https://30zom53or6.execute-api.us-east-1.amazonaws.com/prod/message/${verifCode}`
     );
-    setMessage(data);
+    history.push({
+      pathname: '/receive/message',
+      state: { message: data },
+    });
+    await axios.delete(
+      `https://30zom53or6.execute-api.us-east-1.amazonaws.com/prod/message/${verifCode}`
+    );
   };
 
-  return message ? (
-    <Secret message={message} />
-  ) : (
-    <Form onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        value={verifCode}
-        onChange={(e) => setVerifCode(e.target.value)}
-        placeholder="What is the verification code?"
-        bsSize="lg"
-      />
-      <Button type="submit">Submit</Button>
-    </Form>
+  return (
+    <Container maxWidth="md">
+      <Typography variant="h1">Submit Code to View Secret.</Typography>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          variant="outlined"
+          required
+          id="messageInput"
+          name="messageInput"
+          fullWidth
+          type="text"
+          value={verifCode}
+          onChange={(e) => setVerifCode(e.target.value)}
+          placeholder="What is your verification code?"
+          style={{ paddingBottom: '2rem' }}
+        />
+        <Button type="submit" variant="outlined" endIcon={<PublishIcon />}>
+          Submit
+        </Button>
+      </form>
+    </Container>
   );
 };
 
