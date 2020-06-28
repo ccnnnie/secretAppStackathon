@@ -25,6 +25,14 @@ const Home = () => {
               deciphered for the user.
             </Typography>
             <Typography variant="caption" paragraph={true}>
+              Once a secret has been viewed, it will be destroyed. The code will
+              not work again.
+            </Typography>
+            <Typography variant="caption" paragraph={true}>
+              Secrets that have not been viewed within 2 days will be
+              automatically deleted.
+            </Typography>
+            <Typography variant="caption" paragraph={true}>
               <Link
                 href="https://github.com/connielok/secretAppStackathon"
                 target="_blank"
