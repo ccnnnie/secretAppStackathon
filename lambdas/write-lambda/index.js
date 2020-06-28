@@ -4,8 +4,6 @@ const { v4: uuidv4 } = require('uuid');
 const encrypt = require('./encrypt');
 
 exports.handler = (event, context, callback) => {
-  console.log('processing event: ', event);
-
   let params = {
     Item: {
       uuid: uuidv4(),
@@ -15,7 +13,6 @@ exports.handler = (event, context, callback) => {
 
     TableName: 'SecretEncrypt',
   };
-  console.log('params: ', params);
 
   docClient.put(params, function(err, data) {
     if (err) {

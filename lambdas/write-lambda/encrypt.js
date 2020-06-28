@@ -15,18 +15,5 @@ function encrypt(text) {
   encrypted = Buffer.concat([encrypted, cipher.final()]);
   return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
 }
-const message = encrypt('this is secret!');
-console.log('encrypt', message);
-
-// function decrypt(text) {
-//   let iv = Buffer.from(text.iv, 'hex');
-//   let encryptedText = Buffer.from(text.encryptedData, 'hex');
-//   let decipher = crypto.createDecipheriv('aes-256-cbc', key, iv);
-//   let decrypted = decipher.update(encryptedText);
-//   decrypted = Buffer.concat([decrypted, decipher.final()]);
-//   return decrypted.toString();
-// }
-
-// console.log('decrypt', decrypt(message));
 
 module.exports = encrypt;
