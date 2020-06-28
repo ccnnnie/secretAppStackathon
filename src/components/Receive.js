@@ -25,7 +25,7 @@ const Receive = () => {
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h1">Submit Code to View Secret.</Typography>
+      <Typography variant="h2">Submit Code to View Secret.</Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           variant="outlined"

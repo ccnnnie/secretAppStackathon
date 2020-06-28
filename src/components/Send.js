@@ -24,7 +24,7 @@ const Send = () => {
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h1">What is Your Message?</Typography>
+      <Typography variant="h2">What is Your Message?</Typography>
       <form method="PUT" action="/" onSubmit={handleSubmit}>
         <TextField
           variant="outlined"

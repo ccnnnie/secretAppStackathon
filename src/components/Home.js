@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
       <Container maxWidth="md">
-        <Typography variant="h1">
+        <Typography variant="h2">
           Are You Sending or Receiving a Secret?
         </Typography>
         <Buttons />

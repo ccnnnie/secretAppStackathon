@@ -17,9 +17,9 @@ const Confirm = () => {
 
   const verifCodeRef = useRef(null);
 
-  async function copyToClipboard(e) {
+  const copyToClipboard = async (e) => {
     await navigator.clipboard.writeText(verifCode);
-  }
+  };
 
   return verifCode ? (
     <div>
