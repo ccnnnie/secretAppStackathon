@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import {
   TextField,
@@ -14,7 +14,6 @@ const Confirm = () => {
   const history = useHistory();
   const location = useLocation();
   const verifCode = location.state ? location.state.verifCode : '';
-  // const verifCode = 'e08ca3f5-2c0d-490e-b0a7-1a22af9f38c4';
 
   const verifCodeRef = useRef(null);
 
