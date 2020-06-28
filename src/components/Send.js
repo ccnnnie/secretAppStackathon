@@ -24,7 +24,7 @@ const Send = () => {
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h2">What is Your Message?</Typography>
+      <Typography variant="h2">What is Your Secret?</Typography>
       <form method="PUT" action="/" onSubmit={handleSubmit}>
         <TextField
           required
@@ -33,7 +33,7 @@ const Send = () => {
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Tell us your secret message"
+          placeholder="Write your secret message here"
         />
         <Button type="submit" variant="outlined" endIcon={<SendIcon />}>
           Send

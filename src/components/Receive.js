@@ -15,7 +15,7 @@ const Receive = () => {
       `https://30zom53or6.execute-api.us-east-1.amazonaws.com/prod/message/${verifCode}`
     );
     history.push({
-      pathname: '/receive/message',
+      pathname: '/receive/secret',
       state: { message: data },
     });
     await axios.delete(
@@ -24,7 +24,7 @@ const Receive = () => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container>
       <Typography variant="h2">Submit Code to View Secret.</Typography>
       <form onSubmit={handleSubmit}>
         <TextField

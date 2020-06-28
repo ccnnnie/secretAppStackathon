@@ -1,10 +1,12 @@
 // import grey from '@material-ui/core/colors/grey';
-import green from '@material-ui/core/colors/green';
+import { createMuiTheme } from '@material-ui/core/styles';
 
-export const themeObj = {
+const theme = createMuiTheme({
   palette: {
     type: 'dark',
-    secondary: green,
+    secondary: {
+      main: '#4adf3d',
+    },
     background: {
       paper: '#000000',
       default: '#000000',
@@ -38,6 +40,7 @@ export const themeObj = {
   props: {
     MuiTypography: {
       gutterBottom: true,
+      display: 'block',
     },
     MuiButton: {
       variant: 'outlined',
@@ -47,5 +50,10 @@ export const themeObj = {
       variant: 'outlined',
       color: 'secondary',
     },
+    MuiContainer: {
+      maxWidth: 'md',
+    },
   },
-};
+});
+
+export default theme;

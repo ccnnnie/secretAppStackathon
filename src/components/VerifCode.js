@@ -14,7 +14,6 @@ const Confirm = () => {
   const history = useHistory();
   const location = useLocation();
   const verifCode = location.state ? location.state.verifCode : '';
-
   const verifCodeRef = useRef(null);
 
   const copyToClipboard = async (e) => {
@@ -23,7 +22,7 @@ const Confirm = () => {
 
   return verifCode ? (
     <div>
-      <Container maxWidth="md">
+      <Container>
         <Typography variant="h3">This is your verification code: </Typography>
         <TextField
           disabled
@@ -43,17 +42,12 @@ const Confirm = () => {
           }}
         />
         <div style={{ padding: '2rem' }}>
-          <div>
-            <Typography variant="caption">
-              Share this code with a friend so they can see your secret message.
-            </Typography>
-          </div>
-          <div>
-            <Typography variant="caption">
-              Secret can only be viewed once. Secret must be viewed within 2
-              days.
-            </Typography>
-          </div>
+          <Typography variant="caption">
+            Share this code with a friend so they can see your secret message.
+          </Typography>
+          <Typography variant="caption">
+            Secret can only be viewed once. Secret must be viewed within 2 days.
+          </Typography>
         </div>
         <GoHomeButton />
       </Container>

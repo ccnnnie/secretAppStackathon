@@ -8,8 +8,9 @@ const Secret = (props) => {
   const location = useLocation();
   const message = location.state ? location.state.message : '';
   const errorMessage = message.errorMessage;
+
   return message ? (
-    <Container maxWidth="md">
+    <Container>
       {errorMessage ? (
         <Typography variant="h4">
           Sorry, secret not found or has already been seen.
@@ -20,6 +21,12 @@ const Secret = (props) => {
             <Typography variant="h3">This is your secret:</Typography>
             <Typography variant="h4" id="blur">
               {message}
+            </Typography>
+            <Typography variant="caption">
+              Hover over secret to reveal.
+            </Typography>
+            <Typography variant="caption">
+              Secret will be destroyed once you navigate away from this page.
             </Typography>
           </div>
         </div>

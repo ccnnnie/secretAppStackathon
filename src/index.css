@@ -4,5 +4,9 @@
 
 #blur:hover {
   filter: blur(0px);
-
 }
+
+a:visited, a:link {
+  text-decoration: none;
+}
+
