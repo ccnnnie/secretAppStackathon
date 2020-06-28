@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import {
   TextField,
@@ -14,7 +14,6 @@ const Confirm = () => {
   const history = useHistory();
   const location = useLocation();
   const verifCode = location.state ? location.state.verifCode : '';
-  const verifCodeRef = useRef(null);
 
   const copyToClipboard = async (e) => {
     await navigator.clipboard.writeText(verifCode);
@@ -26,7 +25,6 @@ const Confirm = () => {
         <Typography variant="h3">This is your verification code: </Typography>
         <TextField
           disabled
-          ref={verifCodeRef}
           variant="outlined"
           defaultValue={verifCode}
           fullWidth
