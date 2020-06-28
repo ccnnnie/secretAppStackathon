@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import Buttons from './Buttons';
+import { useLocation, useHistory } from 'react-router-dom';
 import GoHomeButton from './GoHomeButton';
 import { Container, Typography } from '@material-ui/core';
 
 const Secret = (props) => {
+  const history = useHistory();
   const location = useLocation();
   const message = location.state ? location.state.message : '';
   const errorMessage = message.errorMessage;
@@ -15,20 +15,19 @@ const Secret = (props) => {
           Sorry, secret not found or has already been seen.
         </Typography>
       ) : (
-        <div>
-          <Typography variant="h3">This is your secret:</Typography>
-          <Typography variant="h4" id="blur">
-            {message}
-          </Typography>
+        <div style={{ padding: '1rem' }}>
+          <div>
+            <Typography variant="h3">This is your secret:</Typography>
+            <Typography variant="h4" id="blur">
+              {message}
+            </Typography>
+          </div>
         </div>
       )}
       <GoHomeButton />
     </Container>
   ) : (
-    <div>
-      Please choose one of the below options.
-      <Buttons />
-    </div>
+    <div>{history.push('/')}</div>
   );
 };
 

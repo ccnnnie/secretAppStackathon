@@ -5,11 +5,13 @@ import HomeIcon from '@material-ui/icons/Home';
 
 const GoHomeButton = () => {
   return (
-    <Link to="/">
-      <Button variant="outlined" endIcon={<HomeIcon />}>
-        Home
-      </Button>
-    </Link>
+    <div>
+      <Link to="/">
+        <Button variant="outlined" endIcon={<HomeIcon />}>
+          Home
+        </Button>
+      </Link>
+    </div>
   );
 };
 
