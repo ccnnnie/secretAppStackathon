@@ -8,16 +8,12 @@ const Buttons = () => {
       <Grid container spacing={10} justify="center" alignItems="center">
         <Grid item>
           <Link to="/send">
-            <Button size="large" variant="outlined">
-              Sending
-            </Button>
+            <Button size="large">Sending</Button>
           </Link>
         </Grid>
         <Grid item>
           <Link to="/receive">
-            <Button size="large" variant="outlined">
-              Receiving
-            </Button>
+            <Button size="large">Receiving</Button>
           </Link>
         </Grid>
       </Grid>

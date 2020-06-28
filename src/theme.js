@@ -1,17 +1,22 @@
+// import grey from '@material-ui/core/colors/grey';
+import green from '@material-ui/core/colors/green';
+
 export const themeObj = {
   palette: {
-    type: 'light',
-    primary: {
-      main: '#009688',
-      dark: '#00796B',
-      light: '#B2DFDB',
+    type: 'dark',
+    secondary: green,
+    background: {
+      paper: '#000000',
+      default: '#000000',
     },
-    secondary: {
-      main: '#fafafa',
-      dark: '#fafafa',
-      light: '#000000',
+    text: {
+      primary: '#4adf3d',
+      disabled: '#fff',
     },
-    divider: '#BDBDBD',
+  },
+  typography: {
+    fontFamily:
+      "Menlo, 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console', Monaco, monospace;",
   },
   overrides: {
     MuiContainer: {
@@ -20,23 +25,27 @@ export const themeObj = {
         paddingTop: '3rem',
       },
     },
-
-    // MuiTab: {
-    //   root: {
-    //     color: 'white',
-    //     '&:hover': {
-    //       backgroundColor: 'purple',
-    //     },
-    //   },
-    // },
+    MuiTextField: {
+      root: {
+        paddingTop: '1rem',
+        paddingBottom: '1rem',
+        '&.Mui-focused fieldset': {
+          borderColor: 'green',
+        },
+      },
+    },
   },
   props: {
     MuiTypography: {
       gutterBottom: true,
     },
-    // MuiGrid: {
-    //   justify: 'center',
-    //   alignItems: 'center',
-    // },
+    MuiButton: {
+      variant: 'outlined',
+    },
+    MuiTextField: {
+      fullWidth: true,
+      variant: 'outlined',
+      color: 'secondary',
+    },
   },
 };

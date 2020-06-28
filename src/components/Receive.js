@@ -28,16 +28,13 @@ const Receive = () => {
       <Typography variant="h2">Submit Code to View Secret.</Typography>
       <form onSubmit={handleSubmit}>
         <TextField
-          variant="outlined"
           required
           id="messageInput"
           name="messageInput"
-          fullWidth
           type="text"
           value={verifCode}
           onChange={(e) => setVerifCode(e.target.value)}
           placeholder="What is your verification code?"
-          style={{ paddingBottom: '2rem' }}
         />
         <Button type="submit" variant="outlined" endIcon={<PublishIcon />}>
           Submit

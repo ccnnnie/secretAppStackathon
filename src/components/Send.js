@@ -27,16 +27,13 @@ const Send = () => {
       <Typography variant="h2">What is Your Message?</Typography>
       <form method="PUT" action="/" onSubmit={handleSubmit}>
         <TextField
-          variant="outlined"
           required
           id="messageInput"
           name="messageInput"
-          fullWidth
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Tell us your secret message"
-          style={{ paddingBottom: '2rem' }}
         />
         <Button type="submit" variant="outlined" endIcon={<SendIcon />}>
           Send
