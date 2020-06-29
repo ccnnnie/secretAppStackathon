@@ -15,7 +15,7 @@ const Home = () => {
           <Container maxWidth="xs">
             <Typography variant="caption" paragraph={true}>
               Secret App is a serverless web application built with AWS Lambda,
-              Amazon API Gateway, and Amazon Dynamodb, and with React and
+              Amazon API Gateway, and Amazon DynamoDB, and with React and
               Material UI on the front-end.
             </Typography>
             <Typography variant="caption" paragraph={true}>

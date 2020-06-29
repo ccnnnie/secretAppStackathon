@@ -1,7 +1,7 @@
 # Secret App
 
 Secret App is a serverless web application built with AWS Lambda,
-Amazon API Gateway, and Amazon Dynamodb, and with React and
+Amazon API Gateway, and Amazon DynamoDB, and with React and
 Material UI on the front-end.
 
 A user's secret is not saved to the database in plaintext. It is

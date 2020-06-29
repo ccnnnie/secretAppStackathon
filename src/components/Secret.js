@@ -26,7 +26,7 @@ const Secret = (props) => {
               Hover over secret to reveal.
             </Typography>
             <Typography variant="caption">
-              Secret will be destroyed once you navigate away from this page.
+              Secret not be accessed again.
             </Typography>
           </div>
         </div>
