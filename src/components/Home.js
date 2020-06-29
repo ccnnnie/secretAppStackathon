@@ -20,9 +20,9 @@ const Home = () => {
             </Typography>
             <Typography variant="caption" paragraph={true}>
               A user's secret is not saved to the database in plaintext. It is
-              ciphered with the crypto npm module. When a user inputs a valid
-              verification code, the secret is retrieved from the database and
-              deciphered for the user.
+              encrypted with 128-bit AES encryption (using the built-in Node.js
+              crypto module). When a user inputs a valid verification code, the
+              secret is retrieved from the database and decrypted for the user.
             </Typography>
             <Typography variant="caption" paragraph={true}>
               Once a secret has been viewed, it will be destroyed. The code will

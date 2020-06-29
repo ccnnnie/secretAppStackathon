@@ -5,9 +5,9 @@ Amazon API Gateway, and Amazon Dynamodb, and with React and
 Material UI on the front-end.
 
 A user's secret is not saved to the database in plaintext. It is
-ciphered with the crypto npm module. When a user inputs a valid
-verification code, the secret is retrieved from the database and
-deciphered for the user.
+encrypted with 128-bit AES encryption (using the built-in Node.js
+crypto module). When a user inputs a valid verification code, the
+secret is retrieved from the database and decrypted for the user.
 
 Once a secret has been viewed, it will be destroyed. The code will
 not work again.
